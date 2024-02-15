@@ -1,3 +1,3 @@
-# Using Python To Access AWS
+# Orchestration and Prefect
 
-Instructions for today's sprint can be found at: https://l2c.northcoders.com/courses/de-integration/de-password-manager
+Instructions for today's sprint can be found at: https://l2c.northcoders.com/courses/de2-toolkit/currency-exchange
