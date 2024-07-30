@@ -14,4 +14,7 @@ serverless-output.yaml
 **/*pycache
 *coverage*
 venv/
-secret.txt
+**/.terraform
+**/.terraform*
+**/function.zip
+**/*.tfstate*
