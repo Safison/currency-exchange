@@ -1,19 +1,19 @@
 data "archive_file" "extract_lambda" {
   type        = "zip"
   output_path = "${path.module}/../packages/extract/function.zip"
-  source_file = "${path.module}/../src/currency_exchange_extract.py"
+  source_file = "${path.module}/../src/extract.py"
 }
 
 data "archive_file" "transform_lambda" {
   type        = "zip"
   output_path = "${path.module}/../packages/transform/function.zip"
-  source_file = "${path.module}/../src/currency_exchange_transform.py"
+  source_file = "${path.module}/../src/transform.py"
 }
 
 data "archive_file" "load_lambda" {
   type        = "zip"
   output_path = "${path.module}/../packages/load/function.zip"
-  source_file = "${path.module}/../src/currency_exchange_load.py"
+  source_file = "${path.module}/../src/load.py"
 }
 
 resource "aws_lambda_function" "workflow_tasks_extract" {
