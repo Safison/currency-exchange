@@ -13,3 +13,11 @@ resource "aws_s3_object" "lambda_code" {
   source   = "${path.module}/../packages/${each.key}/function.zip"
   etag     = filemd5("${path.module}/../packages/${each.key}/function.zip")
 }
+
+resource "aws_s3_object" "lambda_layer" {
+  bucket = aws_s3_bucket.code_bucket.bucket
+  key    = "layer/layer.zip"
+  source = data.archive_file.layer_code.output_path
+  etag   = filemd5(data.archive_file.layer_code.output_path)
+  depends_on = [ data.archive_file.layer_code ]
+}

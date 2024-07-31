@@ -11,9 +11,9 @@ provider "aws" {
   region = "eu-west-2"
   default_tags {
     tags = {
-      ProjectName   = "Currency Exchange"
-      DeployedFrom  = "Terraform"
-      Repository    = "de-currency-exchange"
+      ProjectName  = "Currency Exchange"
+      DeployedFrom = "Terraform"
+      Repository   = "de-currency-exchange"
     }
   }
 }
