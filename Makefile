@@ -57,7 +57,7 @@ dev-setup: black coverage
 
 ## Run the black code check
 run-black:
-	$(call execute_in_env, black  ./src/*.py ./tests/*.py)
+	$(call execute_in_env, black  ./src/*.py ./test/*.py)
 
 ## Run the unit tests
 unit-test:
