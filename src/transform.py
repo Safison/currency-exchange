@@ -1,3 +1,4 @@
+import pprint
 def lambda_handler(event, context):
     """Transforms the data to give the required rates against USD.
 
@@ -17,4 +18,7 @@ def lambda_handler(event, context):
 
     """
     # replace this code
-    return {"eur": {"rate": 1.08167213, "reverse_rate": 0.924495}}
+    eur_usd_fwd_rate = event['eur']['usd']
+    eur_usd_rev_rate = 1 / eur_usd_fwd_rate
+    
+    return {"eur": {"rate": eur_usd_fwd_rate, "reverse_rate": eur_usd_rev_rate}}

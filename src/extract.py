@@ -1,4 +1,6 @@
 import requests
+import pprint
+
 
 
 def lambda_handler(event, context):
@@ -23,8 +25,15 @@ def lambda_handler(event, context):
         }
     """
     # replace this code
-    print(requests.__version__)
+    URL = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@2025-02-13/v1/currencies/eur.json'
+    curr_rate = requests.get(url=URL)
+    dict_curr_rate = curr_rate.json()
+    #return dict_curr_rate
+    # print(requests.__version__)
+    
+    curr_date = dict_curr_rate['date']
+    float_eur_usd = dict_curr_rate['eur']['usd']
     return {
-        "date": "2024-07-30",
-        "eur": {"gbp": 0.84175906, "jpy": 166.80563884, "usd": 1.08167213},
+        "date": curr_date,
+        "eur": {"usd": float_eur_usd}
     }
