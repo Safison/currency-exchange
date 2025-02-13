@@ -1,3 +1,7 @@
+import json 
+import boto3
+from datetime import datetime
+
 def lambda_handler(event, context):
     """Writes the data to a date-encoded S3 folder.
 
@@ -11,4 +15,12 @@ def lambda_handler(event, context):
         dictionary, either {'result': 'Success'} if successful or {'result': 'Failure'} otherwise
     """
     # replace this code
-    return {"result": "Success"}
+    bucket_name = 'nc-de-currency-data-20250213150922346500000001'
+    file_name = f'{datetime.now()}_eur_usd_exchange_rates.json'
+
+    file_content = json.dumps(event) + "\n"
+
+    s3 = boto3.client('s3')
+    s3.put_object(Body=file_content, Bucket=bucket_name, Key=file_name)
+
+    return {"result": "Houston, we have liftoff"}
